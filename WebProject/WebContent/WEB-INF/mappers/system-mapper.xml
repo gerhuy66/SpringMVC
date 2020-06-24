@@ -7,8 +7,10 @@
 		FROM User
 		WHERE id = #{id}
 	</select>
-
-
-
-
+	
+	<select id = "selectContact" parameterType="java.lang.String" resultType="com.model.Contact">
+		SELECT *
+		FROM contact
+		WHERE c_id = #{id}
+	</select> 
 </mapper>

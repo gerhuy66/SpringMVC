@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.DAO.UserDAO;
+import com.model.Contact;
 import com.model.User;
 
 @Service
@@ -14,7 +15,12 @@ public class UserServiceImp implements UserService{
 	
 	@Override
 	public User getUserById(String id) {
-		userDAO.getUserById(id);
-		return null;
+		return userDAO.getUserById(id);
+	}
+
+	@Override
+	public Contact getContact(String id) {
+		
+		return userDAO.getContact(id);
 	}
 }
