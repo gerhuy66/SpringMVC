@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<div class="contact_table">
+<div style="margin-left:400px;">
 		<table>
 			<tr>
 				<td>
@@ -26,7 +26,7 @@
 					<ul>
 						<li><span class="glyphicon glyphicon-pushpin"></span></li>
 						<li>Address</li>
-						<li>19 Cong Hoa , Tphcm</li>
+						<li th:text="${contact.getAddress()}"></li>
 					</ul>
 				</td>
 
@@ -35,7 +35,7 @@
 						<li><span class="glyphicon glyphicon-dashboard"></span></li>
 						
 						<li>Open Time</li>
-						<li>10:00 am to 23:00 pm</li>
+						<li th:text="${contact.getOpen_time()}"></li>
 					</ul>
 				</td>
 
@@ -44,7 +44,7 @@
 						<li><span class="glyphicon glyphicon-send"></span></li>
 						
 						<li>Email</li>
-						<li>hello@gmail.com</li>
+						<li th:text="${contact.getEmail()}"></li>
 					</ul>
 				</td>
 			</tr>
@@ -53,7 +53,7 @@
 </body>
 
 
-<div>
+<div style="margin-left:450px;">
 <b>Leave Message</b>
 <form  style="margin-top:5px;"action="">
 
@@ -74,6 +74,7 @@
 .contact_table{
 	border-style: solid;
 	background-color:lightblue;
+	
 }
 ul{
 	list-style-type:none;

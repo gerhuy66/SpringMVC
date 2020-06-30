@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="center">
+		<h3>Register</h3>
+	</div>
+	<form action="action_page.php" method="post">
+		<div class="container">
+			<label for="fname"><b>Full Name</b></label> 
+			<input type="text" placeholder="Enter Full Name" name="fname" required>
+			<label for="email"><b>Email</b></label> 
+			<input type="text" placeholder="Enter Email" name="email" required> 
+			<label for="username"><b>Username</b></label> 
+			<input type="text" placeholder="Enter Username" name="username" required> 
+			<label for="psw"><b>Password</b></label> 
+			<input type="password" placeholder="Enter Password" name="psw" required>
+			<label for="repsw"><b>Confirm Password</b></label> 
+			<input type="password" placeholder="Enter Password" name="repsw" required>
+			<button type="submit">Register</button>
+		</div>
+	</form>
+</body>
+<style>
+/* Full-width inputs */
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+/* Add padding to containers */
+.container {
+	padding: 16px;
+}
+/* Set a style for all buttons */
+button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+/* Add a hover effect for buttons */
+button:hover {
+	opacity: 0.8;
+}
+/* Bordered form */
+form {
+	border: 3px solid #f1f1f1;
+}
+.center {
+  text-align: center;
+  border: 3px solid purple;
+}
+
+</style>
+</html>
