@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "SystemMapper">
+	<select id = "selectUser" parameterType="java.lang.String" resultType="com.huy.model.Users">
+		SELECT *
+		FROM users
+		WHERE username = #{id}
+	</select>
+	<select id="getCatalog" resultType="com.huy.model.Catalog">
+		select *
+		from catalog;
+	</select>
+	<select id = "selectContact" parameterType="java.lang.String" resultType="com.huy.model.Contact">
+		SELECT *
+		FROM contact
+		WHERE c_id = #{id}
+	</select> 
+	<select id = "selectTopProduct" resultType="com.huy.model.Product">
+		SELECT *
+		FROM product
+		where topProduct = true;
+	</select>
+	<select id = "searchProductByName" parameterType="java.lang.String" resultType="com.huy.model.Product">
+
+		SELECT *
+		FROM product
+		where p_name like concat(#{p_name},"%")
+	</select>
+	<select id = "selectOnSaleProduct" resultType="com.huy.model.Product">
+		SELECT *
+		FROM product
+		where onSale = true;
+	</select>
+	<insert id = "insertUser" parameterType="com.huy.model.Users">
+		insert into users(username,password,email) values(#{username},#{password},#{email})
+	</insert>
+	
+	<select id="getCatalogById" parameterType="java.lang.String" resultType="com.huy.model.Catalog">
+		SELECT *
+		FROM catalog
+		where catalog_id =#{id}
+	</select>
+	
+	<select id="getProductByCatalogId" parameterType="java.lang.String" 
+	resultType="com.huy.model.Product">
+		select p.p_id,p.p_name,p.p_des,p.p_img,p.catalog_id
+		from product p,catalog c
+		where p.catalog_id = c.catalog_id
+		and p.catalog_id = #{catalogId};
+	</select>
+	
+	<select id="getDetailProduct" parameterType="java.lang.String" 
+	resultType="com.huy.model.Product">
+		Select *
+		From product
+		where p_id = #{catalogId}
+	</select>
+</mapper>

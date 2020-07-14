@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Catagory</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/home_style.css}">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div id="banner">
+		<a th:href="@{/logout}">Log Out</a>
+		<a th:href="@{/information}">information</a>
+		<a th:href="@{/contact}">contact</a>
+		<a th:href="@{/home}">Home</a>
+		<h3 id="welcomeText" th:text="'Welcome '+${logedUsername}"></h3>
+	</div>
+	<!-- Sidebar -->
+	<div class="w3-sidebar w3-light-grey w3-bar-block"
+		style="width: 15%; height: 70%; float: left;">
+		<h3 class="w3-bar-item">Catagory</h3>
+		<th:block th:if="${catalogs.empty}">
+			<h3>No Books Available</h3>
+		</th:block>
+		<th:block th:each="ca:${catalogs}">
+			<a class="cata_link" th:href="@{'/catagory/'+${ca.getCatalog_id()}}"
+				th:text="${ca.getCata_name()}"></a>
+			<br>
+		</th:block>
+
+	</div>
+
+	<div id="body_content">
+		
+		<h3 th:text=${pageTitle}></h3>
+		<div class="row">
+			<th:block th:each="pro:${productPage.content}">
+				<div class="col-sm-3">
+					<a th:href="@{'/detail/'+${pro.getP_id()}}"><img
+						th:src="${pro.getP_img()}"></a> <a
+						th:href="@{'/detail/'+${pro.getP_id()}}"><th:block
+							th:text="${pro.getP_name()}"></th:block></a>
+				</div>
+			</th:block>
+		</div>
+		<div class ="pageLine">
+		<div class ="pagination" th:if="${productPage.getTotalPages() > 0}"
+			th:each="pageNumber : ${pageNumbers}">
+			
+			<a th:unless ="${isSearchPage}"
+				th:href="@{'/catagory/'+${catagory.getCatalog_id()}(size=${productPage.getSize()},page=${pageNumber})}"
+				th:text=${pageNumber}
+				th:class="${pageNumber==productPage.number + 1} ? active"></a>
+			<a th:if ="${isSearchPage}"
+				th:href="@{'/catagory/search'}(search=${searchValue},option={$option},size=${productPage.getSize()},page=${pageNumber})}"
+				th:text=${pageNumber}
+				th:class="${pageNumber==productPage.number + 1} ? active"></a>
+		</div>
+		</div>
+
+
+	</div>
+	
+	
+<div class="footer">
+		<p>CyberLogitec Practic Project</p><br>
+		<p>Scetpa building, 19A Cong Hoa street, Tan Binh distric, Ho Chi Minh city</p>
+	</div>
+</body>
+</html>

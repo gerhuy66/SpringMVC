@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>home page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/home_style.css}">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+	<div id="banner">
+		<a th:href="@{/logout}">Log Out</a> <a th:href="@{/information}">information</a>
+		<a th:href="@{/contact}">contact</a> <a th:href="@{/home}">Home</a>
+		<h3 id="welcomeText" th:text="'Welcome '+${logedUsername}"></h3>
+
+		<div class="" style="margin-left: 283px; margin-top: 30px;">
+			<form th:action="@{'/catagory/'+'search'}"
+				th:object="${catagoryOption}" method="get">
+				<div class="custom-select" >
+					<select th:field="*{option}">
+						<th:block th:each="ca:${catalogs}">
+							<option th:value="${ca.getCatalog_id()}"
+								th:text="${ca.getCata_name()}"></option>
+						</th:block>
+
+					</select>
+				</div>
+				<input type="text" placeholder="Search.." th:name="search">
+				<button type="submit">
+					<i class="fa fa-search"></i>
+				</button>
+			</form>
+		</div>
+
+	</div>
+
+	<!-- Sidebar -->
+	<div class="w3-sidebar w3-light-grey w3-bar-block"
+		style="width: 15%; height: 70%; float: left;">
+		<h3 class="w3-bar-item">Catagory</h3>
+		<th:block th:if="${catalogs.empty}">
+			<h3>No Books Available</h3>
+		</th:block>
+		<th:block th:each="ca:${catalogs}">
+			<a class="cata_link" th:href="@{'/catagory/'+${ca.getCatalog_id()}}"
+				th:text="${ca.getCata_name()}"></a>
+			<br>
+		</th:block>
+
+	</div>
+	<div id="body_content">
+
+		<h3 style="margin-bottom: 10px;">Top Product</h3>
+
+
+
+		<div class="row">
+			<th:block th:each="pro:${topProducts}">
+				<div class="col-sm-3">
+					<a th:href="@{'/detail/'+${pro.getP_id()}}"><img
+						th:src="${pro.getP_img()}"></a> <a
+						th:href="@{'/detail/'+${pro.getP_id()}}"><th:block
+							th:text="${pro.getP_name()}"></th:block></a>
+				</div>
+			</th:block>
+		</div>
+
+		<h3 style="margin-top: 40px;">Sale Off Products</h3>
+		<div class="row">
+			<th:block th:each="pro:${onSaleProducts}">
+				<div class="col-sm-3">
+					<a th:href="@{'/detail/'+${pro.getP_id()}}"><img
+						th:src="${pro.getP_img()}"></a> <a
+						th:href="@{'/detail/'+${pro.getP_id()}}"><th:block
+							th:text="${pro.getP_name()}"></th:block></a>
+				</div>
+			</th:block>
+		</div>
+	</div>
+	<div class="footer">
+		<p>CyberLogitec Practic Project</p>
+		<br>
+		<p>Scetpa building, 19A Cong Hoa street, Tan Binh distric, Ho Chi
+			Minh city</p>
+	</div>
+</body>
+</html>
