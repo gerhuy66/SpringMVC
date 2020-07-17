@@ -65,7 +65,7 @@ public class ProductControler {
     	List<Catalog> listCa = new ArrayList<Catalog>();
     	listCa = catalogService.getCatalog();
     	model.addAttribute("catalogs",listCa);
-    	model.addAttribute("logedUsername",authentication.getName());
+//    	model.addAttribute("logedUsername",authentication.getName());
     	
     	List<Product> listPro = new ArrayList<Product>();
     	if(!searchValue.isPresent()) {
@@ -74,16 +74,17 @@ public class ProductControler {
 			
 			model.addAttribute("catagory",catalogService.getCatalogById(id));
 			pageProductService.setProductList(id);
+			model.addAttribute("isSearchPage",false);
     	}else {
-    		Product product = new Product();
-    		product.setP_name(searchValue.get());
+    		Product searchProduct = new Product();
+    		searchProduct.setP_name(searchValue.get());
+    		searchProduct.setCatalog_id(cataOption.get());
     		
-    		System.out.println(product.toString());
-    		String p_name = product.getP_name();
-    		listPro = productService.searchProByName(p_name);
+    		System.out.println(searchProduct);
+    		listPro = productService.searchProByName(searchProduct);
     		model.addAttribute("pageTitle","Found "+listPro.size()
     		+" products"+" with catagory: "
-    		+catalogService.getCatalogById(cataOption.get()).getCata_name()+" !");
+    		+catalogService.getCatalogById(cataOption.get()).getCata_name()+", with key: \""+searchValue.get()+"\" !");
     		pageProductService.setProductSearchList(listPro);
     		model.addAttribute("isSearchPage",true);
     		model.addAttribute("search",searchValue.get());
@@ -124,6 +125,13 @@ public class ProductControler {
     	model.addAttribute("detailProduct",detailProduct);
         return "detail";
     }
-    
+    @RequestMapping(value="/cart", method = RequestMethod.GET)
+    public String getCart(Model model) {
+    	List<Catalog> listCa = new ArrayList<Catalog>();
+    	listCa = catalogService.getCatalog();
+    	model.addAttribute("catalogs",listCa);
+    	model.addAttribute("pageTitle","All item in your Cart");
+    	return "cart";
+    }
 
 }

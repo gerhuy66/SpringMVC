@@ -11,5 +11,5 @@ public interface ProductService {
 	List<Product> findPaginated(int pageNo, int pageSize);
 	public List<Product> getTopProduct();
 	public List<Product> getOnSaleProduct();
-	public List<Product> searchProByName(String product);
+	public List<Product> searchProByName(Product product);
 }

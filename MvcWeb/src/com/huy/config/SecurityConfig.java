@@ -44,10 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
 		http.sessionManagement().maximumSessions(2);
-//		http.authorizeRequests().antMatchers("/catagory/ca2").permitAll();
+		http.authorizeRequests().antMatchers("/catagory/ca2").permitAll();
+		
 		http.authorizeRequests()
 				.antMatchers("/css/**").permitAll()
 				.antMatchers("/img/**").permitAll()
+				.antMatchers("/js/**").permitAll()
+				.antMatchers("/cart").permitAll()
 //				.antMatchers("/information").access("hasRole('ROLE_USER')")
 				.antMatchers("/register").permitAll()
 				.antMatchers("/doRegister").permitAll()

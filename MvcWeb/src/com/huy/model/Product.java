@@ -50,8 +50,16 @@ public class Product {
 	
 	public Product() {
 		super();
-		this.p_name="";
-		this.catalog_id="";
+		this.p_id = "";
+		this.p_name = "";
+		this.p_des = "";
+		this.p_img = "";
+		this.catalog_id = "";
+		this.topProduct = "";
+		this.onSale = "";
+		this.p_loc = "";
+		this.p_pri = "";
+		this.p_bigImg = "";
 	}
 
 	public String getP_id() {

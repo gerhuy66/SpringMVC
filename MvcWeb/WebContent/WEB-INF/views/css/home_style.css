@@ -8,6 +8,36 @@
 	margin-left:49%;
 	margin-top:-30px;
 }
+.descrpit_products a{
+	display:block;
+	border:none;
+}
+.descrpit_products{
+	display:inline-block;
+}
+.iconContainer{
+	width: 92px;
+    height: 94px;;
+    position: relative;
+    display: inline;
+    float:right;
+ 
+}
+.box{
+    width: 100%;
+    height: 100%;            
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+.stack-top{
+    z-index: 9;
+    margin-top:5px;
+	color:white;
+    display:block;
+   
+}
 .search-container button {
   
   padding: 6px 10px;

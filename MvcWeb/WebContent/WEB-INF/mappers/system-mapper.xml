@@ -21,12 +21,14 @@
 		FROM product
 		where topProduct = true;
 	</select>
-	<select id = "searchProductByName" parameterType="java.lang.String" resultType="com.huy.model.Product">
+	<select id = "searchProductByName" parameterType="com.huy.model.Product" resultType="com.huy.model.Product">
 
 		SELECT *
 		FROM product
 		where p_name like concat(#{p_name},"%")
+		and catalog_id = #{catalog_id}
 	</select>
+	
 	<select id = "selectOnSaleProduct" resultType="com.huy.model.Product">
 		SELECT *
 		FROM product

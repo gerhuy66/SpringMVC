@@ -47,7 +47,7 @@ public class ProductServiceImp implements ProductService {
 	}
 
 	@Override
-	public List<Product> searchProByName(String product) {
+	public List<Product> searchProByName(Product product) {
 		// TODO Auto-generated method stub
 		return productDao.searchProByName(product);
 	}

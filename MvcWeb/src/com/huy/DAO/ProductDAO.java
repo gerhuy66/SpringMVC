@@ -12,5 +12,5 @@ public interface ProductDAO extends PagingAndSortingRepository<Product, Long>{
 	public Product getDetailProduct(String productId);
 	public List<Product> getTopProduct();
 	public List<Product> getOnSaleProduct();
-	public List<Product> searchProByName(String product);
+	public List<Product> searchProByName(Product product);
 }

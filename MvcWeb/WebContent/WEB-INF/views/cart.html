@@ -2,15 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Catagory</title>
+
+<title>Insert title here</title>
+<title>Cart</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" type="text/css" th:href="@{/css/home_style.css}">
 <script type="text/javascript" th:src="@{/js/myScript.js}"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body onload="InitDataByCookies()">
-
+<body onload="loadCart()">
 	<div id="banner">
 		<p id ="test_JS"></p>
 		<a th:href="@{/logout}">Log Out</a>
@@ -18,8 +19,8 @@
 		<a th:href="@{/contact}">contact</a>
 		<a th:href="@{/home}">Home</a>
 		<div class="iconContainer">
-			<b id ="TotalItemCart" style="height:20px;" class="iconContainer stack-top"></b>
-			<a  th:href="@{/cart}" onclick="clickCartEven()" style="background-color: #4b5ac9;" class="iconContainer box"><img src="/MvcWeb/img/CartIcon.png"></a>
+			<b id ="TotalItemCart" class="iconContainer stack-top"></b>
+			<a  style="background-color: #4b5ac9;" class="iconContainer box"><img src="/MvcWeb/img/CartIcon.png"></a>
 		
 		</div>
 		
@@ -27,6 +28,7 @@
 		<h3 style="display:inline;" id="welcomeText" th:text="'Welcome '+${logedUsername}"></h3>
 		
 	</div>
+	
 	<!-- Sidebar -->
 	<div class="w3-sidebar w3-light-grey w3-bar-block"
 		style="width: 15%; height: 70%; float: left;">
@@ -41,49 +43,18 @@
 		</th:block>
 
 	</div>
-	
 	<div id="body_content">
 		
 		<h3 th:text=${pageTitle}></h3>
-		<div class="row">
-			<th:block th:each="pro:${productPage.content}">
-				<div class="col-sm-3">
-					<a th:href="@{'/detail/'+${pro.getP_id()}}"><img
-						th:src="${pro.getP_img()}"></a> 
-					<div class="descrpit_products">
-						<a th:href="@{'/detail/'+${pro.getP_id()}}" th:text="${pro.getP_name()}">
-						</a><br>
-						<button class="btn btn-primary" th:attr="onclick=|clickBuyEvent('${pro.getP_id()}')|"   th:value="${pro.getP_id()}" th:text="Buy"></button>
-					</div>
-					
-					
-				</div>
-			</th:block>
+		<div id="itemList">
+		
+		
 		</div>
-		<div class ="pageLine">
-		<div class ="pagination" th:if="${productPage.getTotalPages() > 0}"
-			th:each="pageNumber : ${pageNumbers}">
-			<th:block th:switch="${isSearchPage}">
-			<a th:case="false"
-				th:href="@{'/catagory/'+${catagory.getCatalog_id()}(size=${productPage.getSize()},page=${pageNumber})}"
-				th:text=${pageNumber}
-				th:class="${pageNumber==productPage.number + 1} ? active"></a>
-			<a th:case="true"
-				th:href="@{'/catagory/search'}(search=${searchValue},option={$option},size=${productPage.getSize()},page=${pageNumber})}"
-				th:text=${pageNumber}
-				th:class="${pageNumber==productPage.number + 1} ? active"></a>
-			</th:block>
-		</div>
-		</div>
-
-
+		
 	</div>
-	
-	
-<div class="footer">
+	<div class="footer">
 		<p>CyberLogitec Practic Project</p><br>
 		<p>Scetpa building, 19A Cong Hoa street, Tan Binh distric, Ho Chi Minh city</p>
 </div>
-
 </body>
 </html>
