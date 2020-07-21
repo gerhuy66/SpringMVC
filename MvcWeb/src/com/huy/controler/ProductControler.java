@@ -6,26 +6,36 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.huy.service.CatalogService;
 import com.huy.service.PageProductService;
 import com.huy.service.ProductService;
+
+import sun.util.logging.resources.logging;
+
 import com.huy.model.Catalog;
 import com.huy.model.Product;
-
+import org.springframework.web.util.WebUtils;
 import com.huy.model.CatagoryOptions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 @Controller
 public class ProductControler {
@@ -44,7 +54,7 @@ public class ProductControler {
 		listCa = catalogService.getCatalog();
 		model.addAttribute("catalogs",listCa);
 		
-		model.addAttribute("logedUsername",authentication.getName());
+//		model.addAttribute("logedUsername",authentication.getName());
 		
 		List<Product> topProducts= productService.getTopProduct();
 		List<Product> onSaleProducts= productService.getOnSaleProduct();
@@ -126,12 +136,17 @@ public class ProductControler {
         return "detail";
     }
     @RequestMapping(value="/cart", method = RequestMethod.GET)
-    public String getCart(Model model) {
+    public String getCart(Model model,HttpServletResponse response,@RequestParam("cooki") Optional<String> cooki) {
+    	if(cooki.isPresent()) 
+    		model.addAttribute("cooki",cooki.get());
     	List<Catalog> listCa = new ArrayList<Catalog>();
     	listCa = catalogService.getCatalog();
     	model.addAttribute("catalogs",listCa);
     	model.addAttribute("pageTitle","All item in your Cart");
+    	
+    		
     	return "cart";
     }
+   
 
 }

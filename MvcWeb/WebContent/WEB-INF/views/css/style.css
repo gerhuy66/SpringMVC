@@ -10,13 +10,13 @@ input[type=text], input[type=password] {
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
-	border: 1px solid #ccc;
+	border: 1px solid rgb(128, 255, 128);
 	box-sizing: border-box;
 }
 
 /* Set a style for all buttons */
 button {
-	background-color: #4CAF50;
+	background-color: rgb(116, 33, 218);
 	color: white;
 	padding: 14px 20px;
 	margin: 8px 0;

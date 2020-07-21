@@ -13,7 +13,6 @@
 </head>
 <body onload="loadCart()">
 	<div id="banner">
-		<p id ="test_JS"></p>
 		<a th:href="@{/logout}">Log Out</a>
 		<a th:href="@{/information}">information</a>
 		<a th:href="@{/contact}">contact</a>
@@ -46,11 +45,17 @@
 	<div id="body_content">
 		
 		<h3 th:text=${pageTitle}></h3>
-		<div id="itemList">
+		<div id="itemList" style="min-height:400px;width:100%;">
 		
 		
+		</div><br>
+		<div style="display:inline-block;">
+			<a class="btn btn-primary" style="margin-bottom:400px;width:100px;height:70px;font-size:30px;" onclick="clickOrder()"th:href="@{/doOrder}">Order</a>
 		</div>
 		
+		
+		
+	
 	</div>
 	<div class="footer">
 		<p>CyberLogitec Practic Project</p><br>

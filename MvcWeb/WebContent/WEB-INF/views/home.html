@@ -14,22 +14,20 @@
 <body>
 	<div id="banner">
 		<a th:href="@{/logout}">Log Out</a> <a th:href="@{/information}">information</a>
-		<a th:href="@{/contact}">contact</a> <a th:href="@{/home}">Home</a>
-		<h3 id="welcomeText" th:text="'Welcome '+${logedUsername}"></h3>
+		<a th:href="@{/contact}">contact</a> <a th:href="@{/home}">Home</a><br>
+		<h3 id="welcomeText" th:text="'Welcome '+${logedUsername}"></h3><br>
 
-		<div class="" style="margin-left: 283px; margin-top: 30px;">
+		<div class="searchBox">
 			<form th:action="@{'/catagory/'+'search'}"
 				th:object="${catagoryOption}" method="get">
-				<div class="custom-select" >
-					<select th:field="*{option}">
-						<th:block th:each="ca:${catalogs}">
-							<option th:value="${ca.getCatalog_id()}"
-								th:text="${ca.getCata_name()}"></option>
-						</th:block>
+				<select th:field="*{option}">
+					<th:block th:each="ca:${catalogs}">
+						<option th:value="${ca.getCatalog_id()}"
+							th:text="${ca.getCata_name()}"></option>
+					</th:block>
 
-					</select>
-				</div>
-				<input type="text" placeholder="Search.." th:name="search">
+				</select> <input type="text" placeholder="Search.."
+					th:name="search">
 				<button type="submit">
 					<i class="fa fa-search"></i>
 				</button>
@@ -61,10 +59,11 @@
 		<div class="row">
 			<th:block th:each="pro:${topProducts}">
 				<div class="col-sm-3">
-					<a th:href="@{'/detail/'+${pro.getP_id()}}"><img
-						th:src="${pro.getP_img()}"></a> <a
-						th:href="@{'/detail/'+${pro.getP_id()}}"><th:block
-							th:text="${pro.getP_name()}"></th:block></a>
+					<a  th:href="@{'/detail/'+${pro.getP_id()}}"><img
+						th:src="${pro.getP_img()}"></a><br> 
+					<a  th:href="@{'/detail/'+${pro.getP_id()}}"><th:block
+						th:text="@{'Name: '+${pro.getP_name()}}"></th:block></a><br>
+					<a  href="#" th:text="@{'Price: '+${pro.getP_price()}}"></a>
 				</div>
 			</th:block>
 		</div>
@@ -73,10 +72,11 @@
 		<div class="row">
 			<th:block th:each="pro:${onSaleProducts}">
 				<div class="col-sm-3">
-					<a th:href="@{'/detail/'+${pro.getP_id()}}"><img
-						th:src="${pro.getP_img()}"></a> <a
-						th:href="@{'/detail/'+${pro.getP_id()}}"><th:block
-							th:text="${pro.getP_name()}"></th:block></a>
+					<a  th:href="@{'/detail/'+${pro.getP_id()}}"><img
+						th:src="${pro.getP_img()}"></a><br> 
+					<a  th:href="@{'/detail/'+${pro.getP_id()}}"><th:block
+						th:text="@{'Name: '+${pro.getP_name()}}"></th:block></a><br>
+					<a  href="#" th:text="@{'Price: '+${pro.getP_price()}}"></a>
 				</div>
 			</th:block>
 		</div>

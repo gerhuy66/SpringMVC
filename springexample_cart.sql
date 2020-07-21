@@ -16,30 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `contact`
+-- Table structure for table `cart`
 --
 
-DROP TABLE IF EXISTS `contact`;
+DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `contact` (
-  `c_id` varchar(10) NOT NULL,
-  `phone` char(30) DEFAULT NULL,
-  `address` varchar(30) DEFAULT NULL,
-  `open_time` varchar(30) DEFAULT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`c_id`)
+CREATE TABLE `cart` (
+  `cardId` varchar(10) DEFAULT NULL,
+  `pId` varchar(10) DEFAULT NULL,
+  `userOwn` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `contact`
+-- Dumping data for table `cart`
 --
 
-LOCK TABLES `contact` WRITE;
-/*!40000 ALTER TABLE `contact` DISABLE KEYS */;
-INSERT INTO `contact` VALUES ('1','+01-3-8888-6868','19A Cong Hoa HCM city','10:00 am to 23:00 pm','hello@color.com');
-/*!40000 ALTER TABLE `contact` ENABLE KEYS */;
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

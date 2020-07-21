@@ -44,8 +44,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
 		http.sessionManagement().maximumSessions(2);
-		http.authorizeRequests().antMatchers("/catagory/ca2").permitAll();
+		//For test purpose !
+		http.authorizeRequests().antMatchers("/catagory/**").permitAll();
+		http.authorizeRequests().antMatchers("/").permitAll();
 		
+		//End test purpse
 		http.authorizeRequests()
 				.antMatchers("/css/**").permitAll()
 				.antMatchers("/img/**").permitAll()

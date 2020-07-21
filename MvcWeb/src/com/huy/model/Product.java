@@ -11,6 +11,31 @@ public class Product {
 	String p_loc;
 	String p_pri;
 	String p_bigImg;
+	int p_price;
+	public int getP_price() {
+		return p_price;
+	}
+
+	public void setP_price(int p_price) {
+		this.p_price = p_price;
+	}
+
+	public Product(String p_id, String p_name, String p_des, String p_img, String catalog_id, String topProduct,
+			String onSale, String p_loc, String p_pri, String p_bigImg, int p_price) {
+		super();
+		this.p_id = p_id;
+		this.p_name = p_name;
+		this.p_des = p_des;
+		this.p_img = p_img;
+		this.catalog_id = catalog_id;
+		this.topProduct = topProduct;
+		this.onSale = onSale;
+		this.p_loc = p_loc;
+		this.p_pri = p_pri;
+		this.p_bigImg = p_bigImg;
+		this.p_price = p_price;
+	}
+
 	public Product(String p_id, String p_name, String p_des, String p_img, String catalog_id) {
 		super();
 		this.p_id = p_id;
