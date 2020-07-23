@@ -43,7 +43,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES ('pro1','Banana','Great banana','/MvcWeb/img/banana.jpg','ca2',1,NULL,'viet nam','13000 vnd/kg','/MvcWeb/img/bigImg/big_banana.jpg',1000),('pro2','Watermelon','Great Watermelon','/MvcWeb/img/watermelon.jpg','ca1',1,NULL,'viet nam',NULL,NULL,1000),('pro3','Apple','Not belong to Steve Job','/MvcWeb/img/apple.png','ca2',1,NULL,'viet nam',NULL,NULL,1000),('pro4','Durian','Best Vietnam Fruit','/MvcWeb/img/durian.jpg','ca2',1,1,'viet nam',NULL,NULL,1000),('pro5','Orrange','Best Vietnam Fruit','/MvcWeb/img/orrange.jpg','ca2',NULL,1,'viet nam',NULL,NULL,1000),('pro6','Star Fruit','Best Vietnam Fruit','/MvcWeb/img/starfruit.jpg','ca2',NULL,1,'viet nam',NULL,NULL,1000),('pro7','Manger','Best Vietnam Fruit','/MvcWeb/img/mango.jpg','ca2',NULL,1,'viet nam',NULL,NULL,1000),('pro8','Vu sua','Best Vietnam Fruit','/MvcWeb/img/vusua.jpg','ca2',NULL,1,'viet nam',NULL,NULL,1000),(NULL,'ban','test banana','/MvcWeb/img/banana.jpg',NULL,NULL,NULL,NULL,NULL,NULL,1000),(NULL,'ban2','test banana','/MvcWeb/img/banana.jpg',NULL,NULL,NULL,NULL,NULL,NULL,1000),(NULL,'ban','test banana','/MvcWeb/img/banana.jpg','ca2',NULL,NULL,NULL,NULL,NULL,1000),(NULL,'ban2','test banana','/MvcWeb/img/banana.jpg','ca2',NULL,NULL,NULL,NULL,NULL,1000);
+INSERT INTO `product` VALUES ('pro1','Banana','Great banana','/MvcWeb/img/banana.jpg','ca2',1,NULL,'viet nam','13000 vnd/kg','/MvcWeb/img/bigImg/big_banana.jpg',1000),('pro2','Watermelon','Great Watermelon','/MvcWeb/img/watermelon.jpg','ca1',1,NULL,'viet nam',NULL,NULL,1000),('pro3','Apple','Not belong to Steve Job','/MvcWeb/img/apple.png','ca2',1,NULL,'viet nam',NULL,NULL,1000),('pro4','Durian','Best Vietnam Fruit','/MvcWeb/img/durian.jpg','ca2',1,1,'viet nam',NULL,NULL,1000),('pro5','Orrange','Best Vietnam Fruit','/MvcWeb/img/orrange.jpg','ca2',NULL,1,'viet nam',NULL,NULL,1000),('pro6','Star Fruit','Best Vietnam Fruit','/MvcWeb/img/starfruit.jpg','ca2',NULL,1,'viet nam',NULL,NULL,1000),('pro7','Manger','Best Vietnam Fruit','/MvcWeb/img/mango.jpg','ca2',NULL,1,'viet nam',NULL,NULL,1000),('pro8','Vu sua','Best Vietnam Fruit','/MvcWeb/img/vusua.jpg','ca2',NULL,1,'viet nam',NULL,NULL,1000);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-21 11:51:43
+-- Dump completed on 2020-07-23 23:28:43

@@ -49,9 +49,12 @@
 		
 		
 		</div><br>
-		<div style="display:inline-block;">
-			<a class="btn btn-primary" style="margin-bottom:400px;width:100px;height:70px;font-size:30px;" onclick="clickOrder()"th:href="@{/doOrder}">Order</a>
+		<div id ="cartOderDiv" style="display:inline-block;">
+			<a class="btn btn-primary" style="width:100px;height:70px;font-size:30px;" onclick="clickOrder()"th:href="@{/doOrder}">Order</a>
+			<h4 style="display:inline-block;margin-bottom:800px;">Total Price: </h4 >
+			<h4 id="totalPrice" style="display:inline-block;margin-bottom:400px;"></h4>
 		</div>
+		
 		
 		
 		

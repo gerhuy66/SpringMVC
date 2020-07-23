@@ -116,39 +116,23 @@ ul#top_product li {
 	margin-left:20%;
 	border:1;
 	border-style: outset;
-	border-color:colours;
+	border-color:rgb(0, 255, 255);
 }
-@-webkit-keyframes colours {
-	  0% {color: #39f;}
-	 15% {color: #8bc5d1;}
-	 30% {color: #f8cb4a;}
-	 45% {color: #95b850;}
-	 60% {color: #944893;}
-	 75% {color: #c71f00;}
-	 90% {color: #bdb280;}
-	100% {color: #39f;}
-}
-#itemList h3{
-	-webkit-animation-direction: normal;
-	-webkit-animation-duration: 3s;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-name: colours;
-	-webkit-animation-timing-function: ease;
-	
-	
-}
+
 #itemList{
 	overflow:scroll;
 	display:inline-block;
 }
 #itemList b{
-	margin-left:100px;
-	-webkit-animation-direction: normal;
-	-webkit-animation-duration: 3s;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-name: colours;
-	-webkit-animation-timing-function: ease;
+	margin-left:50px;
 	
+}
+.amountValue{
+	margin: 0 5px 0 5px;
+}
+#amountControl{
+	display:inline;
+	margin-left:50px;
 }
 #boxLine{
 	width:100%;

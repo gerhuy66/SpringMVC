@@ -53,7 +53,7 @@
 						<a th:href="@{'/detail/'+${pro.getP_id()}}" th:text="@{'Name: '+${pro.getP_name()}}">
 						</a><br>
 						<p style="color:balck" th:text="@{'Price: '+${pro.getP_price()}}"></p>
-						<button class="btn btn-primary" th:attr="onclick=|clickBuyEvent('${pro.getP_id()}','${pro.getP_name()}','${pro.getP_img()}','${pro.getP_price()}')|"   th:value="${pro.getP_id()}" th:text="Buy"></button>
+						<button th:id ="@{'but'+${pro.getP_id()}}" class="btn btn-primary" th:attr="onclick=|clickBuyEvent('${pro.getP_id()}','${pro.getP_name()}','${pro.getP_img()}','${pro.getP_price()}')|" th:text="@{Add to Cart}"></button>
 					</div>
 					
 					

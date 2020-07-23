@@ -56,10 +56,21 @@
 		From product
 		where p_id = #{catalogId}
 	</select>
+	<select id="getOrderHistoryByUserName" parameterType="java.lang.String" resultType="com.huy.model.Cart">
+		select *
+		from cart
+		where userOwn like #{userName}
+	</select>
+	<select id="getProductById" parameterType="java.lang.String" resultType="com.huy.model.Product">
+		select *
+		from product
+		where p_id = #{proId}
+	</select>
+	
 	<insert id = "insertUser" parameterType="com.huy.model.Users">
 		insert into users(username,password,email) values(#{username},#{password},#{email})
 	</insert>
-	<insert id="inserCart" parameterType="com.huy.model.Cart">
+	<insert id="insertCart" parameterType="com.huy.model.Cart">
 		insert into cart(cardId,pId,userOwn) values(#{cardId},#{pId},#{userOwn})
 	</insert>
 </mapper>

@@ -12,4 +12,5 @@ public interface ProductService {
 	public List<Product> getTopProduct();
 	public List<Product> getOnSaleProduct();
 	public List<Product> searchProByName(Product product);
+	public Product getProductById(String proId);
 }

@@ -128,4 +128,9 @@ public class ProductDAOImp implements ProductDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("SystemMapper.searchProductByName",product);
 	}
+
+	@Override
+	public Product getProductById(String proId) {
+		return sqlSession.selectOne("SystemMapper.getProductById",proId);
+	}
 }

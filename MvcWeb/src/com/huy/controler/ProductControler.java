@@ -53,9 +53,10 @@ public class ProductControler {
 		List<Catalog> listCa = new ArrayList<Catalog>();
 		listCa = catalogService.getCatalog();
 		model.addAttribute("catalogs",listCa);
-		
-//		model.addAttribute("logedUsername",authentication.getName());
-		
+		if(authentication != null)
+			model.addAttribute("logedUsername",authentication.getName());
+		else
+			model.addAttribute("logedUsername"," Guest");
 		List<Product> topProducts= productService.getTopProduct();
 		List<Product> onSaleProducts= productService.getOnSaleProduct();
 		
@@ -75,7 +76,10 @@ public class ProductControler {
     	List<Catalog> listCa = new ArrayList<Catalog>();
     	listCa = catalogService.getCatalog();
     	model.addAttribute("catalogs",listCa);
-//    	model.addAttribute("logedUsername",authentication.getName());
+    	if(authentication != null)
+			model.addAttribute("logedUsername",authentication.getName());
+		else
+			model.addAttribute("logedUsername"," Guest");
     	
     	List<Product> listPro = new ArrayList<Product>();
     	if(!searchValue.isPresent()) {
@@ -136,9 +140,13 @@ public class ProductControler {
         return "detail";
     }
     @RequestMapping(value="/cart", method = RequestMethod.GET)
-    public String getCart(Model model,HttpServletResponse response,@RequestParam("cooki") Optional<String> cooki) {
+    public String getCart(Model model,HttpServletResponse response,@RequestParam("cooki") Optional<String> cooki,Authentication authentication) {
     	if(cooki.isPresent()) 
     		model.addAttribute("cooki",cooki.get());
+    	if(authentication != null)
+			model.addAttribute("logedUsername",authentication.getName());
+		else
+			model.addAttribute("logedUsername"," Guest");
     	List<Catalog> listCa = new ArrayList<Catalog>();
     	listCa = catalogService.getCatalog();
     	model.addAttribute("catalogs",listCa);

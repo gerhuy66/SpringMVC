@@ -5,16 +5,22 @@
 <title>home page</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" type="text/css" th:href="@{/css/home_style.css}">
+<script type="text/javascript" th:src="@{/js/myScript.js}"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body>
+<body onload="InitDataByCookies()">
 	<div id="banner">
 		<a th:href="@{/logout}">Log Out</a> <a th:href="@{/information}">information</a>
-		<a th:href="@{/contact}">contact</a> <a th:href="@{/home}">Home</a><br>
+		<a th:href="@{/contact}">contact</a> <a th:href="@{/home}">Home</a>
+		<div class="iconContainer">
+			<b id ="TotalItemCart" style="height:20px;" class="iconContainer stack-top"></b>
+			<a  th:href="@{/cart}" onclick="clickCartEven()" style="background-color: #4b5ac9;" class="iconContainer box"><img src="/MvcWeb/img/CartIcon.png"></a>
+		
+		</div><br>
 		<h3 id="welcomeText" th:text="'Welcome '+${logedUsername}"></h3><br>
 
 		<div class="searchBox">
@@ -63,7 +69,8 @@
 						th:src="${pro.getP_img()}"></a><br> 
 					<a  th:href="@{'/detail/'+${pro.getP_id()}}"><th:block
 						th:text="@{'Name: '+${pro.getP_name()}}"></th:block></a><br>
-					<a  href="#" th:text="@{'Price: '+${pro.getP_price()}}"></a>
+					<a  href="#" th:text="@{'Price: '+${pro.getP_price()}}"></a><br>
+					<button th:id ="@{'but'+${pro.getP_id()}}" class="btn btn-primary" th:attr="onclick=|clickBuyEvent('${pro.getP_id()}','${pro.getP_name()}','${pro.getP_img()}','${pro.getP_price()}')|" th:text="@{Add to Cart}"></button>
 				</div>
 			</th:block>
 		</div>
@@ -76,7 +83,8 @@
 						th:src="${pro.getP_img()}"></a><br> 
 					<a  th:href="@{'/detail/'+${pro.getP_id()}}"><th:block
 						th:text="@{'Name: '+${pro.getP_name()}}"></th:block></a><br>
-					<a  href="#" th:text="@{'Price: '+${pro.getP_price()}}"></a>
+					<a  href="#" th:text="@{'Price: '+${pro.getP_price()}}"></a><br>
+					<button th:id ="@{'but'+${pro.getP_id()}}" class="btn btn-primary" th:attr="onclick=|clickBuyEvent('${pro.getP_id()}','${pro.getP_name()}','${pro.getP_img()}','${pro.getP_price()}')|" th:text="@{Add to Cart}"></button>
 				</div>
 			</th:block>
 		</div>

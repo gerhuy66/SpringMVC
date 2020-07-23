@@ -25,7 +25,8 @@ DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
   `cardId` varchar(10) DEFAULT NULL,
   `pId` varchar(10) DEFAULT NULL,
-  `userOwn` varchar(30) DEFAULT NULL
+  `userOwn` varchar(30) DEFAULT NULL,
+  `amount` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -35,6 +36,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` VALUES ('huy2_cart','pro5','huy2',1),('huy2_cart','pro4','huy2',1),('huy2_cart','pro1','huy2',1),('huy2_cart','pro2','huy2',1),('huy2_cart','pro1','huy2',1),('huy2_cart','pro4','huy2',1),('huy2_cart','pro5','huy2',1);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-21 11:51:43
+-- Dump completed on 2020-07-23 23:28:43

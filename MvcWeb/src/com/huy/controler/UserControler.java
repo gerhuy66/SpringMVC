@@ -1,5 +1,7 @@
 package com.huy.controler;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.huy.component.CustomBCryptPasswordEncoder;
 import com.huy.model.Contact;
+import com.huy.model.Product;
 import com.huy.model.UserPrincipal;
 import com.huy.model.Users;
 import com.huy.service.UserService;
@@ -64,10 +68,14 @@ public class UserControler {
 		return "login";
 	}
 	@GetMapping("/information")
-	public String getInformation(Model model,Authentication authentication) {
+	public String getInformation(
+								Model model,
+								Authentication authentication) {
 		UserPrincipal userprin = (UserPrincipal)authentication.getPrincipal();
 		model.addAttribute("user",userprin);
 		model.addAttribute("logedUsername",authentication.getName());
+//		if(product != null)
+//			model.addAttribute("proList",product);
 		return "information";
 	}
 }

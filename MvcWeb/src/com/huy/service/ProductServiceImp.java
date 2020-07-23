@@ -52,4 +52,10 @@ public class ProductServiceImp implements ProductService {
 		return productDao.searchProByName(product);
 	}
 
+	@Override
+	public Product getProductById(String proId) {
+		// TODO Auto-generated method stub
+		return productDao.getProductById(proId);
+	}
+
 }

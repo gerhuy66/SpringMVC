@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.sessionManagement().maximumSessions(2);
 		//For test purpose !
 		http.authorizeRequests().antMatchers("/catagory/**").permitAll();
-		http.authorizeRequests().antMatchers("/").permitAll();
+		http.authorizeRequests().antMatchers("/home").permitAll();
 		
 		//End test purpse
 		http.authorizeRequests()
